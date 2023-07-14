@@ -2,6 +2,13 @@ import { NextFunction, Request, Response } from "express";
 import modules from "../modules";
 import UserSchema from "../schema/user-schema";
 
+/**
+ * function bodies needs to be wrapped with try catch blocks,
+ * and send internal server errors if there are any thrown errors,
+ * but with current implementation,
+ * there are no async calls to throw errors
+ */
+
 // Get user by ID
 const getUser = (req: Request, res: Response, next: NextFunction) => {
   const id = parseInt(req.params.id);
